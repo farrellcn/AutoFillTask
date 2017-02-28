@@ -1,6 +1,7 @@
 #coding=utf-8
 #该脚本支持py2.7
 import urllib2, urllib, re, codecs, os, os.path, ConfigFile, sys, re
+from datetime import *
 from ntlm import HTTPNtlmAuthHandler
 from sgmllib import SGMLParser
 from xml.dom import minidom
@@ -43,10 +44,23 @@ def GetAbsPath():
 		return os.path.dirname(sys.argv[0]) + '\\'
 
 def GetConfigFile():
-	return GetAbsPath() + PATH_CONFIG + CONFIG_FILE_NAME
+	path = GetAbsPath() + PATH_CONFIG 
+	if not os.path.exists(path):
+		os.mkdir(path)
+	return path + CONFIG_FILE_NAME
 
 def GetLogFile():
-	return GetAbsPath() + PATH_LOG + LOG_FILE_NAME
+	path = GetAbsPath() + PATH_LOG 
+	if not os.path.exists(path):
+		os.mkdir(path)
+	return path + LOG_FILE_NAME
+
+def Log(logStr):
+	logFile = GetLogFile()
+	fpLog = open(logFile, 'a')
+	nowTime = datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S')
+	fpLog.write('%s  %s\n' % (nowTime, logStr))
+	fpLog.close()
 
 class HtmlInputList(SGMLParser):
 	def __init__(self, postFields):
@@ -85,6 +99,7 @@ class Field():
 			self.name = sourceField.name
 			self.formatStr = sourceField.formatStr
 			self.defaultValue = sourceField.defaultValue
+			self.fixedValue = sourceField.fixedValue
 
 		def GetValue(self, name):
 			if FieldDataType.dtInteger == self.dataType:
@@ -122,12 +137,17 @@ class PostPage():
 					field.name = fieldNode.getAttribute('Name')					
 					field.formatStr = fieldNode.getAttribute('FormatStr')
 					field.defaultValue = fieldNode.getAttribute('DefaultValue')
+					field.fixedValue = fieldNode.getAttribute('FixedValue')
+					#print ('%s=%s'%(field.name, field.fixedValue))
 					self.postFields.append(field)
 
 	def Commit(self):
 		#fpw = open('postData.txt', 'w')
 		self.GetPostData()
-		self.postData['progress1$btnSubmit'] = COMMIT_TASK_BUTTON
+		if self.postData.has_key('progress1$btnSubmit'):
+			self.postData['progress1$btnSubmit'] = COMMIT_TASK_BUTTON
+		if self.postData.has_key('Progress1$btnSubmit2'):
+			self.postData['Progress1$btnSubmit2'] = COMMIT_TASK_BUTTON		
 		#for key in self.postData:
 			#fpw.write(key + '=')
 			#fpw.write('%s\n'%self.postData[key])
@@ -138,13 +158,16 @@ class PostPage():
 		content = crm.GetPageContent(self.url)
 		self.htmlInputs.feed(content)
 		for field in self.postFields:
+			if len(field.fixedValue) > 0:
+				self.postData[field.name] = field.fixedValue
+				continue
 			if not self.htmlInputs.inputs.has_key(field.name):
 				self.postData[field.name] = ''					
 			elif len(self.htmlInputs.inputs[field.name]) < 1:				
 				self.postData[field.name] = field.defaultValue
-				print ('no value %s'%field.name)
+				#print ('no value %s'%field.name)
 			else:
-				self.postData[field.name] = self.htmlInputs.inputs[field.name]
+				self.postData[field.name] = self.htmlInputs.inputs[field.name]			
 		return self.postData
 
 	def GetPostDataFromResponse(self, response):
@@ -156,6 +179,7 @@ class PostPage():
 class WorkSheet(PostPage):
 	def __init__(self, wsType, url, crm):
 		PostPage.__init__(self, wsType, url, crm)
+		Log('Task Type: %s' % wsType)
 		self.type = wsType
 		self.pageName = wsType
 
@@ -172,13 +196,16 @@ class CRM():
 	    return response.read()
 
 	def Post(self, url , data):
-	    req = urllib2.Request(url)  
-	    data = urllib.urlencode(data)  
-
-	    opener = self.Login(url)
-
-	    response = opener.open(req, data)
-	    return response.read()
+		postStr = ''
+		Log('PostTo: %s' % url)
+		for key in data:
+			postStr = postStr + key + '=' + data[key] + '\n'
+		Log('postData:\n%s===============================================================' % postStr)
+		req = urllib2.Request(url)
+		data = urllib.urlencode(data)
+		opener = self.Login(url)
+		response = opener.open(req, data)
+		return response.read()
 
 	def GetFirstOngoingTask(self):
 		url = url_ongoingTasks
@@ -192,7 +219,7 @@ class CRM():
 		return None
 
 	def Login(self, url):
-		passman = urllib2.HTTPPasswordMgrWithDefaultRealm()		
+		passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
 		passman.add_password(None, url, self.username, self.password)
 		# create the NTLM authentication handler
 		authNTLM = HTTPNtlmAuthHandler.HTTPNtlmAuthHandler(passman)
@@ -208,19 +235,25 @@ class CRM():
 		if (match != None) and IsNum(match.group(1)):
 			count = int(match.group(1))
 			if count > 0:
-				return True	
+				return True
+		if (match == None):
+			Log('Search RECORD_COUNT_PATTERN Fail')	
 		return False
 
 	def FillSheetWork(self):
 		if self.IsWorkSheetFilled():
+			Log('Been Filled Task')
 			return
 		task = self.GetFirstOngoingTask()
-		task.Commit()
+		if task != None:
+			Log('Commit Task')	
+			task.Commit()
 
-#reload(sys)
+reload(sys)
 #print sys.getdefaultencoding()
-#sys.setdefaultencoding('utf-8')
+sys.setdefaultencoding('utf8')
 #print sys.getdefaultencoding()
+Log('Application Start')
 username = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_USER, 'username')	
 password = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_USER, 'password')
 employeeName = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_USER, 'employeeName')
@@ -230,3 +263,4 @@ url_dailyWorks = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_URL, 'url_dailyWo
 
 crm = CRM(username, password, employeeName)
 crm.FillSheetWork()
+Log('Application Closed')
