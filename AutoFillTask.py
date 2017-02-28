@@ -26,6 +26,8 @@ WORKSHEET_TYPE_MEETING = '会议'
 WORKSHEET_TYPE_BUSINESS = '事物'
 PAGE_ONGONGINGTASK = '工单列表'
 
+RESPONSE_NOAUTH = '401.1 -'
+
 def IsNum(str):	
 	try:
 		int(str)
@@ -187,7 +189,7 @@ class CRM():
 
 	def GetPageContent(self, pageurl):
 	    self.Login(pageurl)
-	    response = urllib2.urlopen(pageurl)
+	    response = urllib2.urlopen(pageurl)	    
 	    return response.read()
 
 	def Post(self, url , data):
@@ -226,6 +228,8 @@ class CRM():
 	def IsWorkSheetFilled(self):
 		url = url_dailyWorks
 		content = self.GetPageContent(url)
+		if content.find(RESPONSE_NOAUTH) != -1:
+			Log('wrong with username or password')
 		match = re.search(RECORD_COUNT_PATTERN, content)
 		if (match != None) and IsNum(match.group(1)):
 			count = int(match.group(1))
@@ -236,7 +240,7 @@ class CRM():
 		return False
 
 	def FillSheetWork(self):
-		if not self.IsWorkSheetFilled():
+		if self.IsWorkSheetFilled():
 			Log('Been Filled Task')
 			return
 		task = self.GetFirstOngoingTask()
@@ -247,7 +251,6 @@ class CRM():
 reload(sys)
 #print sys.getdefaultencoding()
 sys.setdefaultencoding('utf8')
-#print sys.getdefaultencoding()
 Log('Application Start')
 username = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_USER, 'username')	
 password = ConfigFile.Read(GetConfigFile(), CONFIG_FIELD_USER, 'password')
