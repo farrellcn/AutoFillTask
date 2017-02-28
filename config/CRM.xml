@@ -1,0 +1,92 @@
+<?xml version="1.0"?><!DOCTYPE Root []>
+<Root>
+	<Page Name="会议">
+		<Charset>utf-8</Charset>		
+		<PostFields>
+			<Field Name="__EVENTVALIDATION" FormatStr="%s" DefaultValue=""/>
+			<Field Name="__VIEWSTATE" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl02$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl03$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl04$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl05$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl06$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl07$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl08$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl09$hfbusiId" FormatStr="%s" DefaultValue=""/>		
+			<Field Name="ddlServingLevel" FormatStr="%s" DefaultValue="-1000"/>
+			<Field Name="hidActivexInstalled" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidMeetingType" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedBeginDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedBeginTime" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedEndDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedEndTime" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedRoomID" FormatStr="%s" DefaultValue=""/>	
+			<Field Name="progress1$btnSubmit" FormatStr="%s" DefaultValue=""/>
+			<Field Name="progress1$txtActionContent" FormatStr="%s" DefaultValue="edit"/>			
+			<Field Name="progress1$txtProgress" FormatStr="%s" DefaultValue="0"/>	
+			<Field Name="progress1$txtWorkingHours" FormatStr="%s" DefaultValue="8"/>			
+			<Field Name="tbMeetingDateEnd" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingDateStart" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingSubject" FormatStr="%s" DefaultValue="edit"/>
+			<Field Name="tbMeetingTimeEnd" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingTimeStart" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbReceiver" FormatStr="%s" DefaultValue=""/>
+			<Field Name="ticketContent" FormatStr="%s" DefaultValue=""/>		
+		</PostFields>		
+	</Page>
+	<Page Name="事物">
+		<Charset>utf-8</Charset>		
+		<PostFields>
+			<Field Name="__EVENTVALIDATION" FormatStr="%s" DefaultValue=""/>
+			<Field Name="__VIEWSTATE" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl02$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl03$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl04$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl05$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl06$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl07$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl08$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl09$hfbusiId" FormatStr="%s" DefaultValue=""/>		
+			<Field Name="ddlServingLevel" FormatStr="%s" DefaultValue="-1000"/>
+			<Field Name="hidActivexInstalled" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidMeetingType" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedBeginDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedBeginTime" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedEndDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedEndTime" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidSelectedRoomID" FormatStr="%s" DefaultValue=""/>	
+			<Field Name="progress1$btnSubmit" FormatStr="%s" DefaultValue=""/>
+			<Field Name="progress1$txtActionContent" FormatStr="%s" DefaultValue="edit"/>			
+			<Field Name="progress1$txtProgress" FormatStr="%s" DefaultValue="0"/>	
+			<Field Name="progress1$txtWorkingHours" FormatStr="%s" DefaultValue="8"/>			
+			<Field Name="tbMeetingDateEnd" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingDateStart" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingSubject" FormatStr="%s" DefaultValue="edit"/>
+			<Field Name="tbMeetingTimeEnd" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbMeetingTimeStart" FormatStr="%s" DefaultValue=""/>
+			<Field Name="tbReceiver" FormatStr="%s" DefaultValue=""/>
+			<Field Name="ticketContent" FormatStr="%s" DefaultValue=""/>		
+		</PostFields>		
+	</Page>
+	<Page Name="工单列表">
+		<Charset>utf-8</Charset>		
+		<PostFields>
+			<Field Name="__EVENTVALIDATION" FormatStr="%s" DefaultValue=""/>
+			<Field Name="__VIEWSTATE" FormatStr="%s" DefaultValue=""/>
+			<Field Name="btnSimpleQuery" FormatStr="%s" DefaultValue=""/>
+			<Field Name="ddcl_DateType$0" FormatStr="%s" DefaultValue=""/>
+			<Field Name="ddcl_RelatedType$0" FormatStr="%s" DefaultValue=""/>
+			<Field Name="ddcl_Status$1" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hfAddOrUpdateTemplate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hfCurTemplateCount" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidShowAdvQuery" FormatStr="%s" DefaultValue=""/>
+			<Field Name="hidTimeStatus" FormatStr="%s" DefaultValue=""/>		
+			<Field Name="rbl_DisplayMode" FormatStr="%s" DefaultValue=""/>
+			<Field Name="txtBeginDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="txtEndDate" FormatStr="%s" DefaultValue=""/>
+			<Field Name="txtName" FormatStr="%s" DefaultValue=""/>
+			<Field Name="txtQueryKey" FormatStr="%s" DefaultValue=""/>
+			<Field Name="txtSaveTemplateName" FormatStr="%s" DefaultValue=""/>	
+		</PostFields>		
+	</Page>
+</Root>
