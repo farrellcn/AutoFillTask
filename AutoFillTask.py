@@ -25,7 +25,6 @@ WORKSHEET_LIST_PATTERN = '<td width="60">(.*?)</td>[\S\s]*?onclick="winopen\(\'(
 WORKSHEET_TYPE_MEETING = '会议'
 WORKSHEET_TYPE_BUSINESS = '事物'
 PAGE_ONGONGINGTASK = '工单列表'
-COMMIT_TASK_BUTTON = '正在提交...'
 
 def IsNum(str):	
 	try:
@@ -143,11 +142,7 @@ class PostPage():
 
 	def Commit(self):
 		#fpw = open('postData.txt', 'w')
-		self.GetPostData()
-		if self.postData.has_key('progress1$btnSubmit'):
-			self.postData['progress1$btnSubmit'] = COMMIT_TASK_BUTTON
-		if self.postData.has_key('Progress1$btnSubmit2'):
-			self.postData['Progress1$btnSubmit2'] = COMMIT_TASK_BUTTON		
+		self.GetPostData()	
 		#for key in self.postData:
 			#fpw.write(key + '=')
 			#fpw.write('%s\n'%self.postData[key])
@@ -241,7 +236,7 @@ class CRM():
 		return False
 
 	def FillSheetWork(self):
-		if self.IsWorkSheetFilled():
+		if not self.IsWorkSheetFilled():
 			Log('Been Filled Task')
 			return
 		task = self.GetFirstOngoingTask()

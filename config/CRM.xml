@@ -13,6 +13,20 @@
 			<Field Name="actHistoryRecords$Gv1$ctl07$hfbusiId" FormatStr="%s" DefaultValue=""/>
 			<Field Name="actHistoryRecords$Gv1$ctl08$hfbusiId" FormatStr="%s" DefaultValue=""/>
 			<Field Name="actHistoryRecords$Gv1$ctl09$hfbusiId" FormatStr="%s" DefaultValue=""/>		
+			<Field Name="actHistoryRecords$Gv1$ctl10$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl11$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl12$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl13$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl14$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl15$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl16$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl17$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl18$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl19$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl20$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl21$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl22$hfbusiId" FormatStr="%s" DefaultValue=""/>
+			<Field Name="actHistoryRecords$Gv1$ctl23$hfbusiId" FormatStr="%s" DefaultValue=""/>
 			<Field Name="ddlServingLevel" FormatStr="%s" DefaultValue="-1000"/>
 			<Field Name="hidActivexInstalled" FormatStr="%s" DefaultValue=""/>
 			<Field Name="hidMeetingType" FormatStr="%s" DefaultValue=""/>
@@ -21,10 +35,10 @@
 			<Field Name="hidSelectedEndDate" FormatStr="%s" DefaultValue=""/>
 			<Field Name="hidSelectedEndTime" FormatStr="%s" DefaultValue=""/>
 			<Field Name="hidSelectedRoomID" FormatStr="%s" DefaultValue=""/>	
-			<Field Name="progress1$btnSubmit" FormatStr="%s" DefaultValue=""/>
+			<Field Name="progress1$btnSubmit" FormatStr="%s" DefaultValue="" FixedValue="正在提交..."/>
 			<Field Name="progress1$txtActionContent" FormatStr="%s" DefaultValue="edit"/>			
 			<Field Name="progress1$txtProgress" FormatStr="%s" DefaultValue="1"/>	
-			<Field Name="progress1$txtWorkingHours" FormatStr="%s" DefaultValue="8"/>			
+			<Field Name="progress1$txtWorkingHours" FormatStr="%s" DefaultValue="0"/>			
 			<Field Name="tbMeetingDateEnd" FormatStr="%s" DefaultValue=""/>
 			<Field Name="tbMeetingDateStart" FormatStr="%s" DefaultValue=""/>
 			<Field Name="tbMeetingSubject" FormatStr="%s" DefaultValue=""/>
@@ -46,7 +60,7 @@
 			<Field Name="BaseInfo1$hidPrincipal" FormatStr="%s" DefaultValue=""/>
 			<Field Name="BaseInfo1$hidTaskProgress" FormatStr="%s" DefaultValue="0.00"/>
 			<Field Name="hidcollapse" FormatStr="%s" DefaultValue=""/>
-			<Field Name="Progress1$btnSubmit2" FormatStr="%s" DefaultValue=""/>
+			<Field Name="Progress1$btnSubmit2" FormatStr="%s" DefaultValue="" FixedValue="正在提交..."/>
 			<Field Name="Progress1$hdfIsExistChildTicket" FormatStr="%s" DefaultValue=""/>
 			<Field Name="Progress1$txtActionContent" FormatStr="%s" DefaultValue="edit"/>
 			<Field Name="Progress1$txtProgress" FormatStr="%s" DefaultValue="1"/>
